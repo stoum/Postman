@@ -481,13 +481,17 @@
 							"})\r",
 							"\r",
 							"//22.***Написать цикл который выведет в консоль по порядку элементы списка из параметра person.\r",
-							"let i = 0\r",
-							"while (i < jsonData.person.length) {\r",
-							"    console.log(jsonData.person[i])\r",
-							"    i++                                               //доделать!!!!\r",
-							"}\r",
 							"\r",
-							"console.log(jsonData.person[0])"
+							"console.log(Object.getOwnPropertyNames(jsonData.person))\r",
+							"    \r",
+							"//let a = JSON.stringify(jsonData.person)\r",
+							"\r",
+							"//for (let i=0; i<jsonData.person.length; i++) {\r",
+							"//    console.log(jsonData.person[i])\r",
+							"    \r",
+							"//}\r",
+							"console.log(jsonData.person)\r",
+							"//console.log(a)"
 						],
 						"type": "text/javascript"
 					}
