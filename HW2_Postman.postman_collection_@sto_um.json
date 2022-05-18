@@ -486,9 +486,12 @@
 							"})\r",
 							"\r",
 							"//22.***Написать цикл который выведет в консоль по порядку элементы списка из параметра person.:\r",
-							"\r",
 							"Object.entries(jsonData.person).forEach(([key, value]) => console.log(`${key}: ${value}`));\r",
 							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"//console.log(Object.values(jsonData.person))\r",
 							""
 						],
 						"type": "text/javascript"
@@ -530,126 +533,6 @@
 					"port": "{{port}}",
 					"path": [
 						"user_info_2"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "login",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"let jsonData = pm.response.json();\r",
-							"let user_token = jsonData.token\r",
-							"\r",
-							"\r",
-							"pm.environment.set(\"token\", user_token);"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "login",
-							"value": "Alex",
-							"type": "text"
-						},
-						{
-							"key": "password",
-							"value": "233g4276i",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "http://162.55.220.72:{{port}}/login",
-					"protocol": "http",
-					"host": [
-						"162",
-						"55",
-						"220",
-						"72"
-					],
-					"port": "{{port}}",
-					"path": [
-						"login"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "user_info",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
-							"\r",
-							"let jsonData = pm.response.json();\r",
-							"\r",
-							"let req = JSON.parse(request.data)\r",
-							"let req_salary = req.salary\r",
-							"let req_age = req.age\r",
-							"\r",
-							"let salary_check_12 = req_salary * 2.9\r",
-							"let salary_12 = jsonData.qa_salary_after_12_months\r",
-							"let resp_age = jsonData.person.u_age\r",
-							"\r",
-							"\r",
-							"\r",
-							"\r",
-							"console.log (salary_check_12)\r",
-							"console.log (salary_12)\r",
-							"\r",
-							"console.log(\"req_salary = \", req_salary)\r",
-							"\r",
-							"pm.test(\"salary_check_12\", function () {\r",
-							"    pm.expect(salary_12).to.eql(salary_check_12);\r",
-							"});\r",
-							"\r",
-							"pm.test(\"age\", function () {\r",
-							"    pm.expect(req_age).to.eql(resp_age);\r",
-							"});\r",
-							"\r",
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"goga\",\r\n    \"age\": 35,\r\n    \"salary\": 1000,\r\n    \"auth_token\": \"{{token}}\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{url}}:{{port}}/user_info",
-					"host": [
-						"{{url}}"
-					],
-					"port": "{{port}}",
-					"path": [
-						"user_info"
 					]
 				}
 			},
